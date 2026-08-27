@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>A Special Day for Alya ✨</title>
+<style>
+*{box-sizing:border-box} html,body{margin:0;height:100%;font-family:Georgia,"Times New Roman",serif;background:#160e18;color:#fff;overflow:hidden}
+body{background:radial-gradient(circle at 50% 5%,#7d4769 0,#2a1725 34%,#120b12 78%)}
+.page{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;transform:scale(1.03);transition:.8s cubic-bezier(.2,.8,.2,1)}
+.page.show{opacity:1;visibility:visible;transform:scale(1)}
+.glow{position:absolute;width:430px;height:430px;border-radius:50%;background:#f0a6c7;filter:blur(110px);opacity:.15;pointer-events:none}
+.intro-card,.wish-card{position:relative;width:min(100%,430px);text-align:center;z-index:2}
+.line{width:68px;height:1px;background:#e8bdcb;margin:18px auto}
+.kicker{font-family:Arial,sans-serif;font-size:10px;letter-spacing:5px;color:#e8bdcb}
+.name{font-size:clamp(62px,19vw,96px);font-weight:400;line-height:.9;margin:14px 0 8px;letter-spacing:3px;text-shadow:0 8px 35px rgba(255,180,210,.22)}
+.subtitle{font-size:16px;line-height:1.8;color:#eadde4;padding:0 20px}
+.open{border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:15px 29px;font-family:inherit;font-size:15px;letter-spacing:1px;margin-top:18px;backdrop-filter:blur(10px);transition:.3s;cursor:pointer}
+.open:active{transform:scale(.95)}
+.scroll{font-family:Arial,sans-serif;position:absolute;bottom:32px;font-size:9px;letter-spacing:3px;color:#bba9b1;animation:fade 1.8s infinite alternate}
+.photo-page{padding:0}
+.photo-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,7,12,.05),rgba(14,7,12,.78)),url('alya.jpg') center/cover;filter:blur(12px) brightness(.42);transform:scale(1.12)}
+.frame{position:relative;width:min(82vw,370px);height:min(72vh,620px);z-index:2;border-radius:190px 190px 22px 22px;overflow:hidden;border:1px solid rgba(255,240,246,.65);box-shadow:0 28px 80px #0009}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.72))}
+.caption{position:absolute;left:30px;right:30px;bottom:45px;z-index:3;text-align:center;font-size:22px;line-height:1.4;text-shadow:0 3px 12px #000}
+.caption:before,.caption:after{content:"“";color:#f5c6d7;font-size:42px;line-height:0;vertical-align:-14px;margin:0 5px}
+.caption:after{content:"”"}
+.next{position:absolute;bottom:25px;z-index:4;background:none;border:0;color:#fff;font-family:Arial,sans-serif;letter-spacing:3px;font-size:10px;cursor:pointer}
+.message-page{overflow:auto;padding:40px 22px}
+.message-wrap{width:min(100%,460px);text-align:center;position:relative;z-index:2}
+.gift{font-size:64px;filter:drop-shadow(0 15px 25px #0008);animation:float 2.8s ease-in-out infinite}
+.message-title{font-size:38px;font-weight:400;margin:15px 0 6px}
+.message-box{margin-top:24px;padding:27px 24px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.16);border-radius:26px;box-shadow:0 20px 70px #0004;backdrop-filter:blur(14px);font-size:17px;line-height:1.85;color:#f4e9ee;text-align:left}
+.signature{text-align:center;margin-top:18px;color:#e5b8c8;font-size:14px;font-style:italic}
+.final{background:radial-gradient(circle,#78445f 0,#26131f 45%,#0e080e 100%)}
+.final .big{font-size:clamp(54px,15vw,84px);line-height:.95;font-weight:400}
+.final .heart{font-size:58px;animation:heart 1.2s infinite}
+.final p{font-size:18px;line-height:1.8;color:#eadfe5}
+.particle{position:fixed;pointer-events:none;z-index:30;animation:rise linear forwards}
+@keyframes rise{to{transform:translate(var(--x),-115vh) rotate(520deg);opacity:0}}
+@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}} @keyframes heart{50%{transform:scale(1.18)}} @keyframes fade{to{opacity:.25}}
+</style>
+</head>
+<body>
+<div class="page show" id="p1">
+  <div class="glow"></div>
+  <main class="intro-card">
+    <div class="kicker">A LITTLE SURPRISE FOR</div>
+    <div class="line"></div>
+    <div class="name">ALYA</div>
+    <p class="subtitle">Ada seseorang yang ingin membuat hari spesialmu terasa sedikit lebih istimewa.</p>
+    <button class="open" onclick="go(2)">BUKA SURPRISE ✦</button>
+  </main>
+  <div class="scroll">MADE FOR YOUR SPECIAL DAY</div>
+</div>
+
+<div class="page photo-page" id="p2">
+  <div class="photo-bg"></div>
+  <div class="frame"><img src="alya.jpg" alt="Alya"></div>
+  <div class="caption">Senyummu punya cara sendiri buat bikin suasana jadi lebih baik</div>
+  <button class="next" onclick="go(3)">TAP UNTUK MELANJUTKAN ↓</button>
+</div>
+
+<div class="page message-page" id="p3">
+ <div class="glow"></div>
+ <main class="message-wrap">
+   <div class="gift">🎂</div>
+   <div class="kicker">HAPPY BIRTHDAY</div>
+   <h1 class="message-title">Untuk Alya</h1>
+   <div class="line"></div>
+   <article class="message-box">
+   Selamat ulang tahun. Semoga di usia yang baru ini, senantiasa diberikan kesehatan, kebahagiaan, serta kelancaran dalam setiap langkah dan rencana yang dijalani. Semoga segala hal baik yang diharapkan dapat terwujud pada waktu yang tepat, dan setiap perjalanan yang dilalui memberikan pengalaman serta makna yang berharga.<br><br>
+   Semoga menjadi pribadi yang semakin kuat, bijaksana, dan selalu dikelilingi oleh orang-orang yang tulus.
+   </article>
+   <div class="signature">Semoga hari-harimu selalu dipenuhi hal baik ✨</div>
+   <button class="open" onclick="celebrate()">SATU KEJUTAN LAGI 🎁</button>
+ </main>
+</div>
+
+<div class="page final" id="p4">
+ <div class="wish-card">
+   <div class="heart">💗</div>
+   <div class="kicker">WISHING YOU THE BEST</div>
+   <div class="line"></div>
+   <div class="big">HAPPY<br>BIRTHDAY<br>ALYA</div>
+   <p>Semoga tahun ini membawa lebih banyak alasan untuk tersenyum, lebih banyak mimpi yang tercapai, dan lebih banyak momen indah untuk dikenang.</p>
+   <button class="open" onclick="go(1)">ULANGI DARI AWAL ↻</button>
+ </div>
+</div>
+
+<script>
+function go(n){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('show'));
+ document.getElementById('p'+n).classList.add('show');
+}
+function burst(count=120){
+ const icons=['✦','♥','✧','•'];
+ for(let i=0;i<count;i++){
+  const e=document.createElement('div');e.className='particle';
+  e.textContent=icons[Math.floor(Math.random()*icons.length)];
+  e.style.left=(Math.random()*100)+'vw'; e.style.bottom='-30px';
+  e.style.fontSize=(10+Math.random()*20)+'px';
+  e.style.color=['#ffd6e5','#fff0ba','#ffffff','#eab4cf'][Math.floor(Math.random()*4)];
+  e.style.setProperty('--x',((Math.random()-.5)*180)+'px');
+  e.style.animationDuration=(2.8+Math.random()*3)+'s';
+  document.body.appendChild(e);setTimeout(()=>e.remove(),6500);
+ }
+}
+function celebrate(){burst();setTimeout(()=>go(4),900)}
+setInterval(()=>{if(document.getElementById('p2').classList.contains('show'))burst(4)},850);
+</script>
+</body></html>
